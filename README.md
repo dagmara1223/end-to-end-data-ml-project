@@ -25,11 +25,11 @@ Source: https://www.kaggle.com/datasets/yasserh/titanic-dataset
 Format: CSV     
 🧩 Steps:
 - ☑️ Visit Kaggle and download the Titanic dataset (titanic.csv)    
-- ☑️ Place the file in the /data/raw/ directory   
-- ☑️ Open Python script in Visual Studio Code
-- ☑️ Load the data using pandas.read_csv()
-- ☑️ Create a working copy of the DataFrame (df = original_df.copy())
-- ☑️ Perform a quick inspection using df.head(), df.info(), and df.describe()
+- ☑️ Place the file into your Visual Studio Code and also create python file : titanic.py   
+  <img width="266" height="51" alt="image" src="https://github.com/user-attachments/assets/65412cf8-0736-4ccb-9729-8c4eb0f7c73c" />
+- ☑️ Load csv file into the /data/raw directory on git
+
+
 
 to be continued
 -------
