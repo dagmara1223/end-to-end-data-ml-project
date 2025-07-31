@@ -10,7 +10,7 @@ On April 15, 1912, the RMS Titanic sank in the North Atlantic after colliding wi
 | Phase                       | Description                                          |
 | --------------------------- | ---------------------------------------------------- |
 | 1. Dataset Selection      | Download Titanic dataset from Kaggle                 |
-| 2. ETL (CSV → PostgreSQL)   | Clean and load structured data into a relational DB  |
+| 2. ETL (CSV → PostgreSQL -> Python)   | Clean and load structured data into a relational DB  |
 | 3. Data Cleaning            | Handle missing values, types, feature engineering    |
 | 4. EDA                      | Explore patterns visually & statistically            |
 | 5. ETL (PostgreSQL → MySQL) | Test cross-system migration and schema compatibility |
@@ -28,7 +28,11 @@ Format: CSV
 - ☑️ Place the file into your Visual Studio Code and also create python file : titanic.py   
   <img width="266" height="51" alt="image" src="https://github.com/user-attachments/assets/65412cf8-0736-4ccb-9729-8c4eb0f7c73c" />
 - ☑️ Load csv file into the /data/raw directory on git
+- ☑️ Don't forget to save csv file to Excel.   
+  <img width="557" height="36" alt="image" src="https://github.com/user-attachments/assets/6ea3a765-bb23-433a-a120-bde0a0209328" />
 
+### 2. ETL (2 OPTIONS)
+***-option 1: (CSV -> PostgreSQL (SSIS) -> Python )***
 
 
 to be continued
