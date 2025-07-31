@@ -24,3 +24,25 @@ On April 15, 1912, the RMS Titanic sank in the North Atlantic after colliding wi
 Source: https://www.kaggle.com/datasets/yasserh/titanic-dataset   
 Format: CSV     
 
+to be continued
+-------
+## ⛏️ Structure    
+| Folder / File                  | Description                                                           |
+| ------------------------------ | --------------------------------------------------------------------- |
+| `data/`                        | Raw and processed data files (CSV, JSON, etc.)                        |
+| ├── `raw/`                     | Original, untouched data files downloaded from Kaggle                 |
+| └── `processed/`               | Cleaned and transformed data ready for loading                        |
+| `notebooks/`                   | Jupyter notebooks for experiments and data analysis (EDA, ML)         |
+| `scripts/`                     | Python scripts for ETL, model training, CDC, and other pipeline steps |
+| ├── `etl_csv_to_postgres.py`   | Script to load CSV data into PostgreSQL                               |
+| ├── `etl_postgres_to_mysql.py` | Script to migrate data from PostgreSQL to MySQL                       |
+| ├── `cdc_sync.py`              | Script to perform Change Data Capture and synchronize databases       |
+| └── `train_model.py`           | Script to train machine learning models                               |
+| `sql/`                         | SQL scripts for creating schemas, views, and stored procedures        |
+| ├── `postgres_schema.sql`      | PostgreSQL database schema creation script                            |
+| └── `mysql_schema.sql`         | MySQL database schema creation script                                 |
+| `reports/`                     | Generated reports and analysis outputs (CSV, PDF, etc.)               |
+| `power_bi/`                    | Power BI project files (`.pbix`)                                      |
+| `requirements.txt`             | Python package dependencies                                           |
+| `README.md`                    | Project documentation (this file)                                     |
+| `.gitignore`                   | Git ignore file specifying untracked files                            |
