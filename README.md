@@ -34,7 +34,7 @@ Format: CSV
 - ☑️ Don't forget to save csv file to Excel.   
   <img width="557" height="36" alt="image" src="https://github.com/user-attachments/assets/6ea3a765-bb23-433a-a120-bde0a0209328" />
 
-### 2. ETL (2 OPTIONS)
+### 2. ETL (2 OPTIONS) - This step is optional and added to demonstrate the concept
 ***-option 1: (CSV -> PostgreSQL (SSIS) -> Python )***
 - ☑️ Open Visual Studio and create a new Integration Services Project.
 - ☑️ To connect to pgAdmin (PostgreSQL), make sure to install the necessary drivers beforehand.
