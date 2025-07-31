@@ -45,7 +45,7 @@ Format: CSV
   For me it's: C:\Users\dagak\OneDrive\Pulpit\titanic\titanic.csv
   <img width="300" height="300" alt="image" src="https://github.com/user-attachments/assets/9d38fe7d-c842-430f-bb76-f05098ee0e26" />
 - ☑️ Now, from Search SSIS Toolbox choose ADO NET Destination and use the **BLUE** arrow to connect Flat File Source with ADO NET Destination.
-- ☑️ Double click on ADO NET Destination. Once again choose NEW OLE DB Connection manager. NEW inside "Configure OLE DB Connection Window". Remember to choose the right Provider.
+- ☑️ Double click on ADO NET Destination. Once again choose NEW OLE DB Connection manager. NEW inside "Configure OLE DB Connection Window". Remember to choose the right Provider.      
   <img width="350" height="447" alt="image" src="https://github.com/user-attachments/assets/72fc7b73-a1cd-4774-a30d-a71167cffe80" />
 
 
