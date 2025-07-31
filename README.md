@@ -42,7 +42,7 @@ Format: CSV
 - <img width="312" height="150" alt="image" src="https://github.com/user-attachments/assets/8ea245e1-93d6-47c3-bc43-3c1c811e176b" />
 - ☑️ Double Click on it. You are now inside Data Flow board.
 - ☑️ Select ***FLat File Source*** from Search SSIS Toolbox. Click on NEW in "Flat File connection manager" bar. Browse and select your Titanic data csv file path to establish the connection.
-  For me it's: C:\Users\dagak\OneDrive\Pulpit\titanic\titanic.csv
+  For me it's: C:\Users\dagak\OneDrive\Pulpit\titanic\titanic.csv         
   <img width="300" height="300" alt="image" src="https://github.com/user-attachments/assets/9d38fe7d-c842-430f-bb76-f05098ee0e26" />
 - ☑️ Now, from Search SSIS Toolbox choose ADO NET Destination and use the **BLUE** arrow to connect Flat File Source with ADO NET Destination.
 - ☑️ Double click on ADO NET Destination. Once again choose NEW OLE DB Connection manager. NEW inside "Configure OLE DB Connection Window". Remember to choose the right Provider.      
