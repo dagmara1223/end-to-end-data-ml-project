@@ -46,30 +46,7 @@ Tools: Visual Studio 2022, pgAdmin 4, Visual Studio Code
 - ☑️ Select ***FLat File Source*** from Search SSIS Toolbox. Click on NEW in "Flat File connection manager" bar. Browse and select your Titanic data csv file path to establish the connection.
   For me it's: C:\Users\dagak\OneDrive\Pulpit\titanic\titanic.csv         
   <img width="300" height="300" alt="image" src="https://github.com/user-attachments/assets/9d38fe7d-c842-430f-bb76-f05098ee0e26" />
-- ☑️ From Search SSIS Toolbox choose "Data Conversion" and use the **BLUE** arrow to connect with "Flat File Source". Do necessary mappings:    
-  <img width="500" height="198" alt="image" src="https://github.com/user-attachments/assets/37af20a9-ee0e-4bd7-a2c3-6c65311fd9a3" />     
-- ☑️ From Search SSIS Toolbox choose "ADO NET Destination" and use the **BLUE** arrow to connect with "Data Conversion".
-- ☑️ Double click on ADO NET Destination. Once again choose NEW OLE DB Connection manager. NEW inside "Configure OLE DB Connection Window". Remember to choose the right Provider. Then simply click on OK.          
-  <img width="350" height="447" alt="image" src="https://github.com/user-attachments/assets/72fc7b73-a1cd-4774-a30d-a71167cffe80" />
-- ☑️ Next, I created a new database in **pgAdmin** with a table structure that aligns with the columns of the Titanic dataset (CSV file). We can do it manually using SQLStatement directly in pgAdmin using :     
-CREATE SCHEMA IF NOT EXISTS titanic;      
-SET search_path TO titanic;    
-CREATE TABLE titanic.titanic_data(     
-	  PassengerId INT PRIMARY KEY,     
-    Survived INT,     
-    Pclass INT,      
-    Name VARCHAR(200),      
-    Sex VARCHAR(50),     
-    Age VARCHAR(50),      
-    SibSp INT,     
-    Parch INT,     
-    Ticket VARCHAR(50),     
-    Fare VARCHAR(50),     
-    Cabin VARCHAR(50),     
-    Embarked VARCHAR(50)     
-);
-
-Now back in SSIS we simply choose this table in "Use a table or view" bar. Remember to check mappings.  
+  
 
 
 to be continued
