@@ -79,7 +79,7 @@ CREATE TABLE [titanic_data] (
 - ☑️ Click on start. The final configuration without errors should produce the following results:           
   In SSIS :<img width="300" height="252" alt="image" src="https://github.com/user-attachments/assets/95b6e77e-b885-49f2-80a4-55bee38f510a" />                    
   In SSMS: <img width="500" height="502" alt="image" src="https://github.com/user-attachments/assets/61d4cf88-f31e-412f-865a-319fc73ddfb9" />                 
-  We have successfully transferred data from the CSV file to the MS SQL database. If you want, you can analyze and clean your data here before loading it into Python. I will cover this process in Section 5, so if   you are not interested in SSIS, feel free to skip ahead to that section.  [read mysql --> python to be continued]
+  We have successfully transferred data from the CSV file to the MS SQL database. If you want, you can analyze and clean your data here - in SSMS before loading it into Python. I will cover this process in Section 5, so if   you are not interested in SSIS, feel free to skip ahead to that section.  [read mysql --> python to be continued]
 
   
 
