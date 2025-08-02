@@ -11,12 +11,11 @@ On April 15, 1912, the RMS Titanic sank in the North Atlantic after colliding wi
 | 1. Dataset Selection           | Download Titanic dataset from Kaggle                    |
 | 2. ETL (CSV → MySQL)           | Load structured data into a relational database (MySQL)  |
 | 3. Pre-Analysis in MySQL       | Run initial queries to check data quality and structure |
-| 4. CDC                         | Capture and sync incremental changes between DBs         |
-| 5. ETL (MySQL -> CSV)          | Load analyzed data from MySQL to CSV file               |
-| 6. Data Cleaning               | Handle missing values, types, feature engineering        |
-| 7. EDA                         | Explore patterns visually & statistically                |
-| 8. Machine Learning            | Train classifier to predict survival likelihood          |
-| 9. Reporting (Power BI)        | Build dashboards to communicate insights                 |
+| 4. ETL (MySQL -> CSV)          | Load analyzed data from MySQL to CSV file               |
+| 5. Data Cleaning               | Handle missing values, types, feature engineering        |
+| 6. EDA                         | Explore patterns visually & statistically                |
+| 7. Machine Learning            | Train classifier to predict survival likelihood          |
+| 8. Reporting (Power BI)        | Build dashboards to communicate insights                 |
 
 
 ## 🆙 Project Phases - Details    
@@ -109,23 +108,8 @@ During the initial data analysis, I identified several data quality issues and m
 - The problem with column age, with 177 missing values will be solved in Python Analysis part. 
 
 ***RESULTS PATH(directory in my repo)***: SQL     
-### 4. CDC (Incremental Load)  
-In real-world scenarios, data in the source table often changes — new rows are added, others are updated or deleted. CDC (Change Data Capture) helps us track these changes by capturing them and saving to a separate table. This allows us to keep a history of changes, support incremental loads, and maintain a lightweight backup of modified data. This step is 100% additional.  
-Tools: SSIS, SSMS  
-- ☑️ Create new database in your SSMS. I named it "titanic-backup".  
-- ☑️ Before using CDC, we need to enable it both at the database and table level (CDC should only be enabled on original database). In this case, CDC must be enabled for the entire titanic database, as well as for the titanic_data table.
-  To enable SQL Server Agent click and press Start : <img width="200" height="81" alt="image" src="https://github.com/user-attachments/assets/16ae9eef-d780-4326-b05d-2088ff967038" /> <br>
-  To enable CDC:  
-USE titanic;  
-EXEC sys.sp_cdc_enable_db;  
-EXEC sys.sp_cdc_enable_table  
-    @source_schema = N'dbo',  
-    @source_name = N'titanic_data',  
-    @role_name = NULL;  
-- ☑️ Create new Integration Services Project in SSIS.
-- ☑️ 
 
-### 5. ETL (MySQL -> CSV) ✅  
+### 4. ETL (MySQL -> CSV) ✅  
 Tools: SSIS, SSMS    
 Before moving forward with advanced analysis and machine learning, I extracted the cleaned dataset from MySQL and saved it as a CSV file.      
 - ☑️ Create new Integration Services Project in SSIS.    
@@ -158,7 +142,6 @@ to be continued
 | └── `mysqlTOcsv/`              | Script or tool for exporting data from MySQL to CSV       
 | `SQL/`                         | Folder containing SQL scripts and database analysis                   |
 | └── `SQLanalysis.sql`          | SQL script with data exploration or transformation logic              |
-| └── `enable_cdc.sql`           | SQL script that             |
 | `README.md`                    | Description of the project and instructions                           |
 
 
