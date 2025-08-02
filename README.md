@@ -79,8 +79,9 @@ CREATE TABLE [titanic_data] (
 - ☑️ Click on start. The final configuration without errors should produce the following results:           
   In SSIS :<img width="300" height="252" alt="image" src="https://github.com/user-attachments/assets/95b6e77e-b885-49f2-80a4-55bee38f510a" />                    
   In SSMS: <img width="500" height="502" alt="image" src="https://github.com/user-attachments/assets/61d4cf88-f31e-412f-865a-319fc73ddfb9" />                 
-  We have successfully transferred data from the CSV file to the MS SQL database.    
+  We have successfully transferred data from the CSV file to the MS SQL database.
 
+***RESULTS PATH***: etl_all/CSVtoMYSQL
 ### 3. Pre-Analysis in MySQL
 tools: SSMS   
 | Column        | Description                                                          |
@@ -106,7 +107,7 @@ Before jumping into data cleaning or machine learning, I ran initial analysis di
 - ☑️ Detecting outliers and unusual values, such as passengers with age = 0 or fare > 500    
 - ☑️ Creating basic group-based insights, like survival rate by gender and class
 
-You can find MySQL Analysis in 
+***RESULTS PATH(directory in my repo)***: SQL 
   
 
 to be continued
@@ -117,7 +118,10 @@ to be continued
 | `data/`                        | Raw and processed data files (CSV, JSON, etc.)                        |
 | ├── `raw/`                     | Original, untouched data files downloaded from Kaggle                 |
 | └── `processed/`               | Cleaned and transformed data ready for loading                        |
-| `etl/`                         | ETL scripts and logic used to transform and load data                 |
+| `etl_all/`                     | ETL scripts and logic used to transform and load data                 |
 | └── `CSVtoMYSQL/`              | Project or script for loading CSV files into a MySQL database         |
-| `README.md`                    | Description of the project and instructions      
+| `SQL/`                         | Folder containing SQL scripts and database analysis                   |
+| └── `SQLanalysis.sql`          | SQL script with data exploration or transformation logic              |
+| `README.md`                    | Description of the project and instructions                           |
+
 
