@@ -51,5 +51,69 @@ SELECT
   ROUND(AVG(Fare),2) AS avg_fare
 FROM [dbo].[titanic_data];
 
+--------------------------------
 --Survival rate: 
+SELECT 
+	Survived,
+	COUNT(*) AS if_survived,  --0: not survived, 1:survived
+	ROUND(COUNT(*) * 100.0 / CAST((SELECT COUNT(*) FROM [dbo].[titanic_data]) AS FLOAT), 2) AS percentage
+FROM [dbo].[titanic_data]
+GROUP BY Survived;  
 
+-- survival rate by sex
+SELECT 
+  Sex,
+  Survived,  --0:not survived, 1:survived
+  COUNT(*) AS count
+FROM [dbo].[titanic_data]
+GROUP BY Sex, Survived ORDER BY Sex, Survived;
+
+-- average age by sex
+SELECT 
+	Sex,
+	ROUND(AVG(Age),2) AS avg_age
+FROM [dbo].[titanic_data]
+GROUP BY Sex;
+
+-- average fare by Pclass and survival
+SELECT 
+	Pclass,
+	Survived,
+	AVG(Fare) AS avg_fare
+FROM [dbo].[titanic_data]
+GROUP BY Pclass, Survived ORDER BY Pclass, Survived;
+
+-- Age binning
+WITH AgeGroups AS (
+	SELECT 
+		CASE
+			WHEN Age < 13 THEN 'Child'
+			WHEN Age >= 13 AND Age <18 THEN 'Teenager'
+			WHEN Age >=18 AND Age < 60 THEN 'Adult'
+			WHEN Age >= 60 THEN 'Senior'
+		END AS age_group
+	FROM [dbo].[titanic_data]
+)
+SELECT COUNT(*), age_group FROM AgeGroups GROUP BY age_group;
+-- Adult: 575, NULL: 177, Teenager: 44, Senior: 26, Child : 69
+
+-- Outliers
+SELECT * 
+FROM titanic_data 
+WHERE fare > 300;  -- 3 passengersId: 259, 680, 738
+
+SELECT * 
+FROM titanic_data 
+WHERE age > 80;  --none
+
+-- our NULL data
+SELECT * FROM [dbo].[titanic_data] WHERE Age IS NULL OR Cabin IS NULL OR Embarked IS NULL;
+SELECT COUNT(*) FROM [dbo].[titanic_data] WHERE Age IS NULL OR Cabin IS NULL OR Embarked IS NULL; --708
+
+-- survival table
+SELECT 
+  pclass, sex,
+  SUM(CASE WHEN survived = 1 THEN 1 ELSE 0 END) AS survived,
+  SUM(CASE WHEN survived = 0 THEN 1 ELSE 0 END) AS died
+FROM [dbo].[titanic_data]
+GROUP BY pclass, sex ORDER BY pclass,sex; 
