@@ -10,16 +10,17 @@ On April 15, 1912, the RMS Titanic sank in the North Atlantic after colliding wi
 
 ## 🧪 Project Scope & Project Phases   
   
-| Phase                       | Description                                          |
-| --------------------------- | ---------------------------------------------------- |
-| 1. Dataset Selection      | Download Titanic dataset from Kaggle                 |
-| 2. ETL (CSV → MySQL -> Python)   | Clean and load structured data into a relational DB  |
-| 3.ETL (MySQL → PostgreSQL)    | Test cross-system migration and schema compatibility    |
-| 4. CDC                     | Capture and sync incremental changes between DBs       |
-| 5. Data Cleaning            | Handle missing values, types, feature engineering  |
-| 6. EDA             | Explore patterns visually & statistically    |
-| 7. Machine Learning         | Train classifier to predict survival likelihood      |
-| 8. Reporting (Power BI)     | Build dashboards to communicate insights             |
+| Phase                          | Description                                              |
+| ------------------------------ | -------------------------------------------------------- |
+| 1. Dataset Selection           | Download Titanic dataset from Kaggle                    |
+| 2. ETL (CSV → MySQL)           | Load structured data into a relational database (MySQL)  |
+| 3. ETL (MySQL → PostgreSQL)    | Test cross-system migration and schema compatibility     |
+| 4. Pre-Analysis in PostgreSQL / MySQL | Run initial queries to check data quality and structure |
+| 5. CDC                         | Capture and sync incremental changes between DBs         |
+| 6. Data Cleaning               | Handle missing values, types, feature engineering        |
+| 7. EDA                         | Explore patterns visually & statistically                |
+| 8. Machine Learning            | Train classifier to predict survival likelihood          |
+| 9. Reporting (Power BI)        | Build dashboards to communicate insights                 |
 
 
 ## 🆙 Project Phases - Details    
@@ -31,13 +32,13 @@ Format: CSV
 - ☑️ Place the file into your Visual Studio Code and also create (for now- empty) python file : titanic.py   
   <img width="266" height="51" alt="image" src="https://github.com/user-attachments/assets/65412cf8-0736-4ccb-9729-8c4eb0f7c73c" />
 - ☑️ Load csv file into the /data/raw directory on git
-- ☑️ Don't forget to save csv file to Excel.   
+- ☑️ Don't forget to save your csv file.   
   <img width="557" height="36" alt="image" src="https://github.com/user-attachments/assets/6ea3a765-bb23-433a-a120-bde0a0209328" />     
-- ‼️ Important step: Please select whole "Name" column, click on "Ctrl + h". In Replace column type **,** into **Find what** bar, and ** ** into **Replace with**. Next click on **Replace All**. This step is super important before step 2.
+- ‼️ Important step: Please select whole "Name" column, click on "Ctrl + h". In Replace column type "," (comma) into **Find what** bar, and " " (space) into **Replace with**. Next click on **Replace All**. This step is super important before step 2.
   
 
-### 2. ETL - Steps 2,3,4 are optional and added to demonstrate the concept       
-Tools: Visual Studio 2022, SSMS, Visual Studio Code, SSIS    
+### 2. ETL CSV -> MySQL ✅    
+Tools: Visual Studio 2022, SSMS, SSIS    
 - ☑️ Open and create a new database in SSMS named "titanic". 
 - ☑️ Open Visual Studio and create a new Integration Services Project.
 - ☑️ Select ***Data Flow Task*** from Search SSIS Toolbox and drop it into Control Float board.    
@@ -79,8 +80,9 @@ CREATE TABLE [titanic_data] (
 - ☑️ Click on start. The final configuration without errors should produce the following results:           
   In SSIS :<img width="300" height="252" alt="image" src="https://github.com/user-attachments/assets/95b6e77e-b885-49f2-80a4-55bee38f510a" />                    
   In SSMS: <img width="500" height="502" alt="image" src="https://github.com/user-attachments/assets/61d4cf88-f31e-412f-865a-319fc73ddfb9" />                 
-  We have successfully transferred data from the CSV file to the MS SQL database. If you want, you can analyze and clean your data here - in SSMS before loading it into Python. I will cover this process in Section 5, so if   you are not interested in SSIS, feel free to skip ahead to that section.  [read mysql --> python to be continued]
+  We have successfully transferred data from the CSV file to the MS SQL database.    
 
+  ### 3.ETL MySQL -> PostgreSQL (do this step if you want to analyse your data in postgreSQL)    
   
 
 to be continued
