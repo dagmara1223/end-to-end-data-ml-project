@@ -15,26 +15,26 @@ On April 15, 1912, the RMS Titanic sank in the North Atlantic after colliding wi
 | 1. Dataset Selection           | Download Titanic dataset from Kaggle                    |
 | 2. ETL (CSV → MySQL)           | Load structured data into a relational database (MySQL)  |
 | 3. Pre-Analysis in MySQL       | Run initial queries to check data quality and structure |
-| 4. CDC                         | Capture and sync incremental changes between DBs         |
-| 5. Data Cleaning               | Handle missing values, types, feature engineering        |
-| 6. EDA                         | Explore patterns visually & statistically                |
-| 7. Machine Learning            | Train classifier to predict survival likelihood          |
-| 8. Reporting (Power BI)        | Build dashboards to communicate insights                 |
+| 4. ETL (MySQL -> CSV)          | Load analyzed data from MySQL to CSV file               |
+| 5. CDC                         | Capture and sync incremental changes between DBs         |
+| 6. Data Cleaning               | Handle missing values, types, feature engineering        |
+| 7. EDA                         | Explore patterns visually & statistically                |
+| 8. Machine Learning            | Train classifier to predict survival likelihood          |
+| 9. Reporting (Power BI)        | Build dashboards to communicate insights                 |
 
 
 ## 🆙 Project Phases - Details    
 ### 1. Dataset Selection ✅    
 Source: https://www.kaggle.com/datasets/yasserh/titanic-dataset   
-Format: CSV     
+Tools: Kaggle, Excel, Visual Studio Code    
 🧩 Steps:
 - ☑️ Visit Kaggle and download the Titanic dataset (titanic.csv)    
-- ☑️ Place the file into your Visual Studio Code and also create (for now- empty) python file : titanic.py   
+- ☑️ Place the csv file into your Visual Studio Code and also create (for now- empty) python file : titanic.py   
   <img width="266" height="51" alt="image" src="https://github.com/user-attachments/assets/65412cf8-0736-4ccb-9729-8c4eb0f7c73c" />
-- ☑️ Load csv file into the /data/raw directory on git
-- ☑️ Don't forget to save your csv file.   
+- ☑️ Don't forget to save your csv file in Excel.   
   <img width="557" height="36" alt="image" src="https://github.com/user-attachments/assets/6ea3a765-bb23-433a-a120-bde0a0209328" />     
-- ‼️ Important step: Please select whole "Name" column, click on "Ctrl + h". In Replace column type "," (comma) into **Find what** bar, and " " (space) into **Replace with**. Next click on **Replace All**. This step is super important before step 2.
-  
+- ‼️ Important step: Using Excel select whole "Name" column, click on "Ctrl + h". In Replace column type "," (comma) into **Find what** bar, and " " (space) into **Replace with**. Next click on **Replace All**. This step is super important before step 2.
+***RESULTS PATH*** : data/raw
 
 ### 2. ETL CSV -> MySQL ✅    
 Tools: Visual Studio 2022, SSMS, SSIS    
@@ -79,9 +79,10 @@ CREATE TABLE [titanic_data] (
 - ☑️ Click on start. The final configuration without errors should produce the following results:           
   In SSIS :<img width="300" height="252" alt="image" src="https://github.com/user-attachments/assets/95b6e77e-b885-49f2-80a4-55bee38f510a" />                    
   In SSMS: <img width="500" height="502" alt="image" src="https://github.com/user-attachments/assets/61d4cf88-f31e-412f-865a-319fc73ddfb9" />                 
-  We have successfully transferred data from the CSV file to the MS SQL database.    
+  We have successfully transferred data from the CSV file to the MS SQL database.
 
-### 3. Pre-Analysis in MySQL
+***RESULTS PATH***: etl_all/CSVtoMYSQL
+### 3. Pre-Analysis in MySQL ✅
 tools: SSMS   
 | Column        | Description                                                          |
 | ------------- | -------------------------------------------------------------------- |
@@ -101,13 +102,37 @@ tools: SSMS
 Before jumping into data cleaning or machine learning, I ran initial analysis directly in SQL to better understand the dataset and spot potential issues early. This step included:      
 - ☑️ Checking for missing values and NULLs     
 - ☑️ Identifying duplicate records (by PassengerId or full row comparison)     
-- ☑️ Exploring distribution of categorical variables, like Survived, Sex, Pclass, Embarked     
-- ☑️ Calculating basic statistics (AVG, MIN, MAX, STD) for numerical columns like Age and Fare     
-- ☑️ Detecting outliers and unusual values, such as passengers with age = 0 or fare > 500    
+- ☑️ Exploring distribution of categorical variables, like Survived, Sex, Pclass, Embarked etc        
+- ☑️ Calculating basic statistics (AVG, MIN, MAX, STD) for numerical columns       
+- ☑️ Detecting outliers and unusual values, such as passengers with age > 80 or fare > 300      
 - ☑️ Creating basic group-based insights, like survival rate by gender and class
 
-You can find MySQL Analysis in 
-  
+During the initial data analysis, I identified several data quality issues and made following cleaning decisions:    
+- Removed the Cabin column due to nearly 80& missing values. This feature also showed no significant impact on the target variable (Survival).
+- Dropped 2 rows with missing values in the Embarked column. Given the small number of missing entries and their potential importance for modeling, these rows were removed to simplify preprocessing.
+- The problem with column age, with 177 missing values will be solved in Python Analysis part. 
+
+***RESULTS PATH(directory in my repo)***: SQL     
+
+### 4. ETL (MySQL -> CSV) ✅  
+Tools: SSIS, SSMS    
+Before moving forward with advanced analysis and machine learning, I extracted the cleaned dataset from MySQL and saved it as a CSV file.      
+- ☑️ Create new Integration Services Project in SSIS.    
+- ☑️ Choose **Data Flow Task** from Search SSIS Toolbox and Double Click on it.
+- ☑️ In the Data Flow section, select **OLE DB Source** and establish a stable connection to your MySQL Server. If you completed step 3, the connection should already be available in the Configure OLE DB Connection Manager window :            
+<img width="300" height="347" alt="image" src="https://github.com/user-attachments/assets/dd5053f2-5d16-4ec1-8738-3a950e2ee066" />    <br>
+Choose the titanic_data table (one that we analyzed in SSMS).  
+- ☑️ Now choose **Flat File Destination** from Search SSIS Toolbox and connect it with **OLE DB Source** using blue arrow. Flat file format should be "Delimited".       
+- ☑️ In your desired destination the new csv file will be created. Don't forget to change "Code Page" to 1250 in "Flat File Connection Manager Editor".                
+<img width="400" height="400" alt="image" src="https://github.com/user-attachments/assets/65384a3e-971f-4ad2-960e-d28c7c336d6e" />   <br>
+<img width="300" height="335" alt="image" src="https://github.com/user-attachments/assets/adeb6bec-fae3-4948-a09b-6aed8ef7c4e3" />   <br>
+- ☑️ Click on start. The final configuration without errors should produce the following results:    
+In SSMS: <img width="300" height="300" alt="image" src="https://github.com/user-attachments/assets/dccbec81-db01-47e7-afe3-c387cc77c84d" />  
+In chosen Folder: <img width="200" height="218" alt="image" src="https://github.com/user-attachments/assets/e6d32c7b-7ed3-4aef-88e7-57f1fc746bb2" />  
+In newly created csv file: <img width="350" height="383" alt="image" src="https://github.com/user-attachments/assets/2c803959-0135-4f5e-b39b-464851b93064" />
+
+***RESULTS PATH***: data/cleaned  
+
 
 to be continued
 -------
@@ -117,7 +142,10 @@ to be continued
 | `data/`                        | Raw and processed data files (CSV, JSON, etc.)                        |
 | ├── `raw/`                     | Original, untouched data files downloaded from Kaggle                 |
 | └── `processed/`               | Cleaned and transformed data ready for loading                        |
-| `etl/`                         | ETL scripts and logic used to transform and load data                 |
+| `etl_all/`                     | ETL scripts and logic used to transform and load data                 |
 | └── `CSVtoMYSQL/`              | Project or script for loading CSV files into a MySQL database         |
-| `README.md`                    | Description of the project and instructions      
+| `SQL/`                         | Folder containing SQL scripts and database analysis                   |
+| └── `SQLanalysis.sql`          | SQL script with data exploration or transformation logic              |
+| `README.md`                    | Description of the project and instructions                           |
+
 
