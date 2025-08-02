@@ -29,7 +29,7 @@ Tools: Kaggle, Excel, Visual Studio Code
 - ☑️ Don't forget to save your csv file in Excel.   
   <img width="557" height="36" alt="image" src="https://github.com/user-attachments/assets/6ea3a765-bb23-433a-a120-bde0a0209328" />     
 - ‼️ Important step: Using Excel select whole "Name" column, click on "Ctrl + h". In Replace column type "," (comma) in **Find what** bar, and " " (space) in **Replace with**. Next click on **Replace All**. This step is super important before step 2.
-***RESULTS PATH*** : data/raw
+***RESULTS PATH*** : data/raw/titanic.csv  
 
 ### 2. ETL CSV -> MySQL ✅    
 Tools: Visual Studio 2022, SSMS, SSIS    
@@ -76,7 +76,7 @@ CREATE TABLE [titanic_data] (
   In SSMS: <img width="500" height="502" alt="image" src="https://github.com/user-attachments/assets/61d4cf88-f31e-412f-865a-319fc73ddfb9" />                 
   We have successfully transferred data from the CSV file to the MS SQL database.
 
-***RESULTS PATH***: etl_all/CSVtoMYSQL
+***RESULTS PATH***: etl_all/CSVtoMYSQL  
 ### 3. Pre-Analysis in MySQL ✅
 tools: SSMS   
 | Column        | Description                                                          |
@@ -107,7 +107,7 @@ During the initial data analysis, I identified several data quality issues and m
 - Dropped 2 rows with missing values in the Embarked column. Given the small number of missing entries and their potential importance for modeling, these rows were removed to simplify preprocessing.
 - The problem with column age, with 177 missing values will be solved in Python Analysis part. 
 
-***RESULTS PATH(directory in my repo)***: SQL     
+***RESULTS PATH(directory in my repo)***: SQL/SQLanalysis.sql     
 
 ### 4. ETL (MySQL -> CSV) ✅  
 Tools: SSIS, SSMS    
@@ -126,8 +126,19 @@ In SSMS: <img width="300" height="300" alt="image" src="https://github.com/user-
 In chosen Folder: <img width="200" height="218" alt="image" src="https://github.com/user-attachments/assets/e6d32c7b-7ed3-4aef-88e7-57f1fc746bb2" />  
 In newly created csv file: <img width="350" height="383" alt="image" src="https://github.com/user-attachments/assets/2c803959-0135-4f5e-b39b-464851b93064" />
 
-***RESULTS PATH 1***: data/cleaned  
+***RESULTS PATH 1***: data/cleaned/titanic_cleaned.csv
 ***RESULTS PATH 2***: etl_all/mysqlTOcsv
+
+### 5. Data Cleaning 
+Tools: Visual Studio Code  
+Before building any predictive models, the dataset needed to be cleaned and enhanced. This step included:  
+- ☑️ Handling missing values in Age:  
+Instead of dropping 177 rows with missing ages (too many to safely discard), I used a Random Forest Regressor to estimate them. The model was trained on features like Pclass, SibSp, Parch, and Fare, and then used to fill in the missing age values.  
+- ☑️ Creating new features:  
+FamilySize: total number of family members onboard (SibSp + Parch)  
+IsAlone: binary feature indicating whether a passenger was traveling alone (1) or not (0)  
+
+***RESULTS PATH***: data/cleaned/titanic.py
 
 to be continued
 -------
