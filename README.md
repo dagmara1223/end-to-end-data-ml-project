@@ -28,7 +28,7 @@ Tools: Kaggle, Excel, Visual Studio Code
   <img width="266" height="51" alt="image" src="https://github.com/user-attachments/assets/65412cf8-0736-4ccb-9729-8c4eb0f7c73c" />
 - ☑️ Don't forget to save your csv file in Excel.   
   <img width="557" height="36" alt="image" src="https://github.com/user-attachments/assets/6ea3a765-bb23-433a-a120-bde0a0209328" />     
-- ‼️ Important step: Using Excel select whole "Name" column, click on "Ctrl + h". In Replace column type "," (comma) in **Find what** bar, and " " (space) in **Replace with**. Next click on **Replace All**. This step is super important before step 2.
+- ‼️ Important step: Using Excel select whole "Name" column, click on "Ctrl + h". In Replace column type "," (comma) in **Find what** bar, and " " (space) in **Replace with**. Next click on **Replace All**. This step is super important before step 2. <br>
 ***RESULTS PATH*** : data/raw/titanic.csv  
 
 ### 2. ETL CSV -> MySQL ✅    
@@ -126,7 +126,7 @@ In SSMS: <img width="300" height="300" alt="image" src="https://github.com/user-
 In chosen Folder: <img width="200" height="218" alt="image" src="https://github.com/user-attachments/assets/e6d32c7b-7ed3-4aef-88e7-57f1fc746bb2" />  
 In newly created csv file: <img width="350" height="383" alt="image" src="https://github.com/user-attachments/assets/2c803959-0135-4f5e-b39b-464851b93064" />
 
-***RESULTS PATH 1***: data/cleaned/titanic_cleaned.csv
+***RESULTS PATH 1***: data/cleaned/titanic_cleaned.csv <br>
 ***RESULTS PATH 2***: etl_all/mysqlTOcsv
 
 ### 5. Data Cleaning 
