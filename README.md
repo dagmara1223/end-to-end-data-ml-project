@@ -82,7 +82,7 @@ CREATE TABLE [titanic_data] (
   In SSMS: <img width="500" height="502" alt="image" src="https://github.com/user-attachments/assets/61d4cf88-f31e-412f-865a-319fc73ddfb9" />                 
   We have successfully transferred data from the CSV file to the MS SQL database.    
 
-  ### 3.ETL MySQL -> PostgreSQL (do this step if you want to analyse your data in postgreSQL)    
+### 3.ETL MySQL -> PostgreSQL (do this step if you want to analyse your data in postgreSQL)    
   
 
 to be continued
