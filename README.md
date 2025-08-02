@@ -1,11 +1,11 @@
 # end-to-end-data-ml-project
 ***"Not even God himself could sink this ship"** But could he?*   
-This project is a personal data engineering and analytics pipeline built around the Titanic dataset from Kaggle. Step by step, it covers downloading the data, transforming it with Python, loading into MySQL, migrating to PostgreSQL, applying CDC logic, training a machine learning model, and presenting final insights in Power BI.  
+This project is a personal data engineering and analytics pipeline built around the Titanic dataset from Kaggle. Step by step, it covers downloading the data, transforming it with Python, loading into MySQL, applying CDC logic, training a machine learning model, and presenting final insights in Power BI.  
 
 ## 📋 Background  
 On April 15, 1912, the RMS Titanic sank in the North Atlantic after colliding with an iceberg. With only 20 lifeboats on board, over 1,500 lives were lost. This tragedy not only became a historical milestone but also left behind a dataset rich with social patterns.This project explores those patterns through an end-to-end data flow, answering one central question: ***"What kinds of people were more likely to survive?"***   
 # 💻 Note! 
-**Some steps might seem unnecessary, and that’s completely true. For example, moving data from CSV to PostgreSQL and then to Python isn’t strictly required. I included these just to demonstrate fun ways to learn new tools and how we can build simple ETL processes throughout our project.**    
+**Some steps might seem unnecessary, and that’s completely true. For example, moving data from CSV to MySQL and then to Python isn’t strictly required. I included these just to demonstrate fun ways to learn new tools and how we can build simple ETL processes throughout our project.**    
   
 
 ## 🧪 Project Scope & Project Phases   
@@ -14,13 +14,12 @@ On April 15, 1912, the RMS Titanic sank in the North Atlantic after colliding wi
 | ------------------------------ | -------------------------------------------------------- |
 | 1. Dataset Selection           | Download Titanic dataset from Kaggle                    |
 | 2. ETL (CSV → MySQL)           | Load structured data into a relational database (MySQL)  |
-| 3. ETL (MySQL → PostgreSQL)    | Test cross-system migration and schema compatibility     |
-| 4. Pre-Analysis in PostgreSQL / MySQL | Run initial queries to check data quality and structure |
-| 5. CDC                         | Capture and sync incremental changes between DBs         |
-| 6. Data Cleaning               | Handle missing values, types, feature engineering        |
-| 7. EDA                         | Explore patterns visually & statistically                |
-| 8. Machine Learning            | Train classifier to predict survival likelihood          |
-| 9. Reporting (Power BI)        | Build dashboards to communicate insights                 |
+| 3. Pre-Analysis in MySQL       | Run initial queries to check data quality and structure |
+| 4. CDC                         | Capture and sync incremental changes between DBs         |
+| 5. Data Cleaning               | Handle missing values, types, feature engineering        |
+| 6. EDA                         | Explore patterns visually & statistically                |
+| 7. Machine Learning            | Train classifier to predict survival likelihood          |
+| 8. Reporting (Power BI)        | Build dashboards to communicate insights                 |
 
 
 ## 🆙 Project Phases - Details    
@@ -82,7 +81,32 @@ CREATE TABLE [titanic_data] (
   In SSMS: <img width="500" height="502" alt="image" src="https://github.com/user-attachments/assets/61d4cf88-f31e-412f-865a-319fc73ddfb9" />                 
   We have successfully transferred data from the CSV file to the MS SQL database.    
 
-### 3.ETL MySQL -> PostgreSQL (do this step if you want to analyse your data in postgreSQL)    
+### 3. Pre-Analysis in MySQL
+tools: SSMS   
+| Column        | Description                                                          |
+| ------------- | -------------------------------------------------------------------- |
+| `PassengerId` | Unique identifier for each passenger                                 |
+| `Survived`    | Survival status (0 = No, 1 = Yes)                                    |
+| `Pclass`      | Ticket class (1 = 1st, 2 = 2nd, 3 = 3rd)                             |
+| `Name`        | Full name of the passenger                                           |
+| `Sex`         | Gender of the passenger                                              |
+| `Age`         | Age of the passenger in years                                        |
+| `SibSp`       | Number of siblings or spouses aboard the Titanic                     |
+| `Parch`       | Number of parents or children aboard the Titanic                     |
+| `Ticket`      | Ticket number                                                        |
+| `Fare`        | Fare paid for the ticket                                             |
+| `Cabin`       | Cabin number (if available)                                          |
+| `Embarked`    | Port of embarkation (C = Cherbourg, Q = Queenstown, S = Southampton) |     
+
+Before jumping into data cleaning or machine learning, I ran initial analysis directly in SQL to better understand the dataset and spot potential issues early. This step included:      
+- ☑️ Checking for missing values and NULLs     
+- ☑️ Identifying duplicate records (by PassengerId or full row comparison)     
+- ☑️ Exploring distribution of categorical variables, like Survived, Sex, Pclass, Embarked     
+- ☑️ Calculating basic statistics (AVG, MIN, MAX, STD) for numerical columns like Age and Fare     
+- ☑️ Detecting outliers and unusual values, such as passengers with age = 0 or fare > 500    
+- ☑️ Creating basic group-based insights, like survival rate by gender and class
+
+You can find MySQL Analysis in 
   
 
 to be continued
@@ -93,4 +117,7 @@ to be continued
 | `data/`                        | Raw and processed data files (CSV, JSON, etc.)                        |
 | ├── `raw/`                     | Original, untouched data files downloaded from Kaggle                 |
 | └── `processed/`               | Cleaned and transformed data ready for loading                        |
+| `etl/`                         | ETL scripts and logic used to transform and load data                 |
+| └── `CSVtoMYSQL/`              | Project or script for loading CSV files into a MySQL database         |
+| `README.md`                    | Description of the project and instructions      
 
