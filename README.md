@@ -42,7 +42,7 @@ Tools: Visual Studio 2022, SSMS, SSIS
 - ☑️ Open Visual Studio and create a new Integration Services Project.
 - ☑️ Select ***Data Flow Task*** from Search SSIS Toolbox and drop it into Control Float board.    
    <img width="312" height="150" alt="image" src="https://github.com/user-attachments/assets/8ea245e1-93d6-47c3-bc43-3c1c811e176b" />
-- ☑️ Double-click on the **Data Flow Task** to open the **Data Flow** tab. Now select **Flat File Source** from Search SSIS Toolbox. Next, in Flat File Connection Manager create a new connection to your titanic.csv file. For example, my file path is: C:\Users\dagak\OneDrive\Pulpit\titanic\titanic.csv. Change CodePage to 1250.    
+- ☑️ Double-click on the **Data Flow Task** to open the **Data Flow** tab. Now select **Flat File Source** from Search SSIS Toolbox. ‼️‼️Make sure to mark "Retain null values from the source as null values in the data flow". Next, in Flat File Connection Manager create a new connection to your titanic.csv file. For example, my file path is: C:\Users\dagak\OneDrive\Pulpit\titanic\titanic.csv. Change CodePage to 1250.    
   <img width="400" height="332" alt="image" src="https://github.com/user-attachments/assets/b1e94515-6201-48e6-8cbe-fdd5ae5147c7" />
 - ☑️ Now, in the Advanced tab, we need to change the data types of our columns. The following pattern should be applied:     
   PassengerId -> DataType: numeric          
