@@ -36,7 +36,7 @@ Format: CSV
 - ‼️ Important step: Please select whole "Name" column, click on "Ctrl + h". In Replace column type **,** into **Find what** bar, and ** ** into **Replace with**. Next click on **Replace All**. This step is super important before step 2.
   
 
-### 2. ETL - This step is optional and added to demonstrate the concept       
+### 2. ETL - Steps 2,3,4 are optional and added to demonstrate the concept       
 Tools: Visual Studio 2022, SSMS, Visual Studio Code, SSIS    
 - ☑️ Open and create a new database in SSMS named "titanic". 
 - ☑️ Open Visual Studio and create a new Integration Services Project.
@@ -76,10 +76,10 @@ CREATE TABLE [titanic_data] (
     [Embarked] varchar(50)
 )          
 - ☑️ The configuration in SSIS should be as follows : <img width="300" height="222" alt="image" src="https://github.com/user-attachments/assets/bdb8ea4d-6e66-4c6b-a7a3-6d84f3f77727" />
-- Click on start. The final configuration without errors should produce the following results:           
+- ☑️ Click on start. The final configuration without errors should produce the following results:           
   In SSIS :<img width="300" height="252" alt="image" src="https://github.com/user-attachments/assets/95b6e77e-b885-49f2-80a4-55bee38f510a" />                    
   In SSMS: <img width="500" height="502" alt="image" src="https://github.com/user-attachments/assets/61d4cf88-f31e-412f-865a-319fc73ddfb9" />                 
-  We have successfully transferred data from the CSV file to the MS SQL database.  [read mysql --> python to be continued]
+  We have successfully transferred data from the CSV file to the MS SQL database. If you want, you can analyze and clean your data here before loading it into Python. I will cover this process in Section 5, so if   you are not interested in SSIS, feel free to skip ahead to that section.  [read mysql --> python to be continued]
 
   
 
