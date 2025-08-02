@@ -15,11 +15,12 @@ On April 15, 1912, the RMS Titanic sank in the North Atlantic after colliding wi
 | 1. Dataset Selection           | Download Titanic dataset from Kaggle                    |
 | 2. ETL (CSV → MySQL)           | Load structured data into a relational database (MySQL)  |
 | 3. Pre-Analysis in MySQL       | Run initial queries to check data quality and structure |
-| 4. CDC                         | Capture and sync incremental changes between DBs         |
-| 5. Data Cleaning               | Handle missing values, types, feature engineering        |
-| 6. EDA                         | Explore patterns visually & statistically                |
-| 7. Machine Learning            | Train classifier to predict survival likelihood          |
-| 8. Reporting (Power BI)        | Build dashboards to communicate insights                 |
+| 4. ETL (MySQL -> CSV)          | Load analyzed data from MySQL to CSV file               |
+| 5. CDC                         | Capture and sync incremental changes between DBs         |
+| 6. Data Cleaning               | Handle missing values, types, feature engineering        |
+| 7. EDA                         | Explore patterns visually & statistically                |
+| 8. Machine Learning            | Train classifier to predict survival likelihood          |
+| 9. Reporting (Power BI)        | Build dashboards to communicate insights                 |
 
 
 ## 🆙 Project Phases - Details    
@@ -82,7 +83,7 @@ CREATE TABLE [titanic_data] (
   We have successfully transferred data from the CSV file to the MS SQL database.
 
 ***RESULTS PATH***: etl_all/CSVtoMYSQL
-### 3. Pre-Analysis in MySQL
+### 3. Pre-Analysis in MySQL ✅
 tools: SSMS   
 | Column        | Description                                                          |
 | ------------- | -------------------------------------------------------------------- |
@@ -102,10 +103,15 @@ tools: SSMS
 Before jumping into data cleaning or machine learning, I ran initial analysis directly in SQL to better understand the dataset and spot potential issues early. This step included:      
 - ☑️ Checking for missing values and NULLs     
 - ☑️ Identifying duplicate records (by PassengerId or full row comparison)     
-- ☑️ Exploring distribution of categorical variables, like Survived, Sex, Pclass, Embarked     
-- ☑️ Calculating basic statistics (AVG, MIN, MAX, STD) for numerical columns like Age and Fare     
-- ☑️ Detecting outliers and unusual values, such as passengers with age = 0 or fare > 500    
+- ☑️ Exploring distribution of categorical variables, like Survived, Sex, Pclass, Embarked etc        
+- ☑️ Calculating basic statistics (AVG, MIN, MAX, STD) for numerical columns       
+- ☑️ Detecting outliers and unusual values, such as passengers with age > 80 or fare > 300      
 - ☑️ Creating basic group-based insights, like survival rate by gender and class
+
+During the initial data analysis, I identified several data quality issues and made following cleaning decisions:    
+- Removed the Cabin column due to nearly 80& missing values. This feature also showed no significant impact on the target variable (Survival).
+- Dropped 2 rows with missing values in the Embarked column. Given the small number of missing entries and their potential importance for modeling, these rows were removed to simplify preprocessing.
+- The problem with column age, with 177 missing values will be solved in Python Analysis part. 
 
 ***RESULTS PATH(directory in my repo)***: SQL 
   
