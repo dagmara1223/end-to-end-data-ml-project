@@ -133,7 +133,7 @@ In newly created csv file: <img width="350" height="383" alt="image" src="https:
 Tools: Visual Studio Code  
 Before building any predictive models, the dataset needed to be cleaned and enhanced. This step included:  
 - ☑️ Handling missing values in Age:  
-Instead of dropping 177 rows with missing ages (too many to safely discard), I used a Random Forest Regressor to estimate them. The model was trained on features like Pclass, SibSp, Parch, and Fare, and then used to fill in the missing age values.  
+Instead of dropping 177 rows with missing ages (too many to safely discard), use a Random Forest Regressor to estimate them. The model was trained on features like Pclass, SibSp, Parch, and Fare, and then used to fill in the missing age values.  
 - ☑️ Creating new features:  
 FamilySize: total number of family members onboard (SibSp + Parch)  
 IsAlone: binary feature indicating whether a passenger was traveling alone (1) or not (0)  
