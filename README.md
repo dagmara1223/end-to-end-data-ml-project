@@ -138,7 +138,8 @@ Instead of dropping 177 rows with missing ages (too many to safely discard), use
 FamilySize: total number of family members onboard (SibSp + Parch)  
 IsAlone: binary feature indicating whether a passenger was traveling alone (1) or not (0)  
 
-***RESULTS PATH***: data/cleaned/titanic.py
+***RESULTS PATH 1***: data/cleaned/titanic.py   
+***RESULTS PATH 2***: data/cleaned/data_cleaned2.csv
 
 to be continued
 -------
