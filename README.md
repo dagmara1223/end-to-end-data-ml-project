@@ -109,9 +109,21 @@ During the initial data analysis, I identified several data quality issues and m
 - The problem with column age, with 177 missing values will be solved in Python Analysis part. 
 
 ***RESULTS PATH(directory in my repo)***: SQL     
-### 4. CDC  
-In real-world scenarios, data in the source table often changes — new rows are added, others are updated or deleted. CDC (Change Data Capture) helps us track these changes by capturing them and saving to a separate table. This allows us to keep a history of changes, support incremental loads, and maintain a lightweight backup of modified data. This step is 100% additional. 
-
+### 4. CDC (Incremental Load)  
+In real-world scenarios, data in the source table often changes — new rows are added, others are updated or deleted. CDC (Change Data Capture) helps us track these changes by capturing them and saving to a separate table. This allows us to keep a history of changes, support incremental loads, and maintain a lightweight backup of modified data. This step is 100% additional.  
+Tools: SSIS, SSMS  
+- ☑️ Create new database in your SSMS. I named it "titanic-backup".  
+- ☑️ Before using CDC, we need to enable it both at the database and table level (CDC should only be enabled on original database). In this case, CDC must be enabled for the entire titanic database, as well as for the titanic_data table.
+  To enable SQL Server Agent click and press Start : <img width="200" height="81" alt="image" src="https://github.com/user-attachments/assets/16ae9eef-d780-4326-b05d-2088ff967038" /> <br>
+  To enable CDC:  
+USE titanic;  
+EXEC sys.sp_cdc_enable_db;  
+EXEC sys.sp_cdc_enable_table  
+    @source_schema = N'dbo',  
+    @source_name = N'titanic_data',  
+    @role_name = NULL;  
+- ☑️ Create new Integration Services Project in SSIS.
+- ☑️ 
 
 ### 5. ETL (MySQL -> CSV) ✅  
 Tools: SSIS, SSMS    
@@ -131,7 +143,7 @@ In chosen Folder: <img width="200" height="218" alt="image" src="https://github.
 In newly created csv file: <img width="350" height="383" alt="image" src="https://github.com/user-attachments/assets/2c803959-0135-4f5e-b39b-464851b93064" />
 
 ***RESULTS PATH 1***: data/cleaned  
-***RESULTS PATH 2***: etl_all/CSVtoMYSQL
+***RESULTS PATH 2***: etl_all/mysqlTOcsv
 
 to be continued
 -------
@@ -146,6 +158,7 @@ to be continued
 | └── `mysqlTOcsv/`              | Script or tool for exporting data from MySQL to CSV       
 | `SQL/`                         | Folder containing SQL scripts and database analysis                   |
 | └── `SQLanalysis.sql`          | SQL script with data exploration or transformation logic              |
+| └── `enable_cdc.sql`           | SQL script that             |
 | `README.md`                    | Description of the project and instructions                           |
 
 
