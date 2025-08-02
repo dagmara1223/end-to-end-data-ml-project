@@ -1,0 +1,764 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/2/2025 10:47:27 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="HP_DAGMARA"
+  DTS:CreatorName="HP_DAGMARA\dagak"
+  DTS:DTSID="{9E4F72DB-E7CB-45B1-AA62-92B68208C296}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.2"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{15B6C30A-735E-4C90-999E-1AD15B8B4F81}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{335A3002-959E-4029-9CF7-89E2797C7683}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="2057"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1250"
+          DTS:ConnectionString="C:\Users\dagak\OneDrive\Pulpit\titanic\titanic_cleaned.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="131"
+              DTS:DataPrecision="18"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PassengerId"
+              DTS:DTSID="{0A3011E5-71E8-4F45-A927-7F6F43ACC70F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="131"
+              DTS:DataPrecision="18"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Survived"
+              DTS:DTSID="{A797F716-D5E6-4C30-A677-7F2E92188C10}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="131"
+              DTS:DataPrecision="18"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Pclass"
+              DTS:DTSID="{03A20124-79D3-4345-BA35-05BF2CF10DFF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Name"
+              DTS:DTSID="{7289085F-567A-49F8-B105-5920EDE26A0B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Sex"
+              DTS:DTSID="{FFD59918-CE79-4619-86D9-B9EB2A106AB1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="4"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Age"
+              DTS:DTSID="{AB249BDB-44CF-4043-871E-9F0DF55F73CB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="131"
+              DTS:DataPrecision="18"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SibSp"
+              DTS:DTSID="{D62D7EA9-9F4C-4788-BB87-AF94BF28750F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="131"
+              DTS:DataPrecision="18"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Parch"
+              DTS:DTSID="{481D93C5-5F37-489F-B9B5-D844D348F607}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Ticket"
+              DTS:DTSID="{83E4210A-C3B9-4B12-A4AD-A05169D174D1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="4"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Fare"
+              DTS:DTSID="{58126D26-895B-47DE-A21C-E6DF490A5AF4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Embarked"
+              DTS:DTSID="{DBF9C048-2CED-4EE6-B822-5E6DEDAAE4DB}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[HP_DAGMARA.titanic]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{2421D54A-577D-42A0-9F5F-7CD609DAEEAB}"
+      DTS:ObjectName="HP_DAGMARA.titanic">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=HP_DAGMARA;Initial Catalog=titanic;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package-{2421D54A-577D-42A0-9F5F-7CD609DAEEAB}HP_DAGMARA.titanic;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{C63C31DC-EDFE-4080-BE47-4E1D39DBCCD8}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\Flat File Destination"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Destination"
+              localeId="2057"
+              name="Flat File Destination"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Flat File Destination.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[PassengerId]"
+                      cachedDataType="numeric"
+                      cachedName="PassengerId"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[PassengerId]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[PassengerId]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[Survived]"
+                      cachedDataType="numeric"
+                      cachedName="Survived"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Survived]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Survived]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[Pclass]"
+                      cachedDataType="numeric"
+                      cachedName="Pclass"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Pclass]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Pclass]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[Name]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="Name"
+                      externalMetadataColumnId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Name]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Name]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[Sex]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Sex"
+                      externalMetadataColumnId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Sex]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Sex]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[Age]"
+                      cachedDataType="r4"
+                      cachedName="Age"
+                      externalMetadataColumnId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Age]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Age]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[SibSp]"
+                      cachedDataType="numeric"
+                      cachedName="SibSp"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[SibSp]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[SibSp]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[Parch]"
+                      cachedDataType="numeric"
+                      cachedName="Parch"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Parch]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Parch]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[Ticket]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Ticket"
+                      externalMetadataColumnId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Ticket]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Ticket]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[Fare]"
+                      cachedDataType="r4"
+                      cachedName="Fare"
+                      externalMetadataColumnId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Fare]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Fare]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[Embarked]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Embarked"
+                      externalMetadataColumnId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Embarked]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Embarked]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[PassengerId]"
+                      dataType="numeric"
+                      name="PassengerId"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Survived]"
+                      dataType="numeric"
+                      name="Survived"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Pclass]"
+                      dataType="numeric"
+                      name="Pclass"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Name]"
+                      codePage="1250"
+                      dataType="str"
+                      length="200"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Sex]"
+                      codePage="1250"
+                      dataType="str"
+                      length="50"
+                      name="Sex" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Age]"
+                      dataType="r4"
+                      name="Age" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[SibSp]"
+                      dataType="numeric"
+                      name="SibSp"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Parch]"
+                      dataType="numeric"
+                      name="Parch"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Ticket]"
+                      codePage="1250"
+                      dataType="str"
+                      length="50"
+                      name="Ticket" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Fare]"
+                      dataType="r4"
+                      name="Fare" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Embarked]"
+                      codePage="1250"
+                      dataType="str"
+                      length="50"
+                      name="Embarked" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[titanic_data]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[HP_DAGMARA.titanic]"
+                  connectionManagerRefId="Package.ConnectionManagers[HP_DAGMARA.titanic]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[PassengerId]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PassengerId]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[PassengerId]"
+                      name="PassengerId"
+                      precision="18"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Survived]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Survived]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Survived]"
+                      name="Survived"
+                      precision="18"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Pclass]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Pclass]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Pclass]"
+                      name="Pclass"
+                      precision="18"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Name]"
+                      codePage="1250"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                      length="200"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Name]"
+                      name="Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Sex]"
+                      codePage="1250"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Sex]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Sex]"
+                      name="Sex"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Age]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Age]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Age]"
+                      name="Age"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[SibSp]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SibSp]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[SibSp]"
+                      name="SibSp"
+                      precision="18"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Parch]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Parch]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Parch]"
+                      name="Parch"
+                      precision="18"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Ticket]"
+                      codePage="1250"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Ticket]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Ticket]"
+                      name="Ticket"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Fare]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Fare]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Fare]"
+                      name="Fare"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Embarked]"
+                      codePage="1250"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Embarked]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Embarked]"
+                      name="Embarked"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PassengerId]"
+                      dataType="numeric"
+                      name="PassengerId"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Survived]"
+                      dataType="numeric"
+                      name="Survived"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Pclass]"
+                      dataType="numeric"
+                      name="Pclass"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                      codePage="1250"
+                      dataType="str"
+                      length="200"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Sex]"
+                      codePage="1250"
+                      dataType="str"
+                      length="50"
+                      name="Sex" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Age]"
+                      dataType="r4"
+                      name="Age" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SibSp]"
+                      dataType="numeric"
+                      name="SibSp"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Parch]"
+                      dataType="numeric"
+                      name="Parch"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Ticket]"
+                      codePage="1250"
+                      dataType="str"
+                      length="50"
+                      name="Ticket" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Fare]"
+                      dataType="r4"
+                      name="Fare" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Embarked]"
+                      codePage="1250"
+                      dataType="str"
+                      length="50"
+                      name="Embarked" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PassengerId]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PassengerId]"
+                      name="PassengerId"
+                      precision="18" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Survived]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Survived]"
+                      name="Survived"
+                      precision="18" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Pclass]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Pclass]"
+                      name="Pclass"
+                      precision="18" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Name]"
+                      codePage="1250"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Name]"
+                      name="Name" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Sex]"
+                      codePage="1250"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Sex]"
+                      name="Sex" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Age]"
+                      dataType="r4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Age]"
+                      name="Age" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SibSp]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SibSp]"
+                      name="SibSp"
+                      precision="18" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Parch]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Parch]"
+                      name="Parch"
+                      precision="18" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Ticket]"
+                      codePage="1250"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Ticket]"
+                      name="Ticket" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Fare]"
+                      dataType="r4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Fare]"
+                      name="Fare" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Embarked]"
+                      codePage="1250"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Embarked]"
+                      name="Embarked" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Data Flow Task"
+          TopLeft="129.999992897113,61.5333329054382" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\Data Flow Task\OLE DB Source"
+          TopLeft="196.666655921274,72.7999994937579" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Data Flow Task\Flat File Destination"
+          TopLeft="317.499982652566,203.666665250394" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="272.666655921274,114.399999493758">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="130.033326731291,89.2666657566362"
+              Start="0,0"
+              End="130.033326731291,81.7666657566362">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.6333328783181" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,40.6333328783181"
+                    Point2="0,44.6333328783181"
+                    Point3="4,44.6333328783181" />
+                  <mssgle:LineSegment
+                    End="126.033326731291,44.6333328783181" />
+                  <mssgle:CubicBezierSegment
+                    Point1="126.033326731291,44.6333328783181"
+                    Point2="130.033326731291,44.6333328783181"
+                    Point3="130.033326731291,48.6333328783181" />
+                  <mssgle:LineSegment
+                    End="130.033326731291,81.7666657566362" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
