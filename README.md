@@ -3,11 +3,7 @@
 This project is a personal data engineering and analytics pipeline built around the Titanic dataset from Kaggle. Step by step, it covers downloading the data, transforming it with Python, loading into MySQL, applying CDC logic, training a machine learning model, and presenting final insights in Power BI.  
 
 ## 📋 Background  
-On April 15, 1912, the RMS Titanic sank in the North Atlantic after colliding with an iceberg. With only 20 lifeboats on board, over 1,500 lives were lost. This tragedy not only became a historical milestone but also left behind a dataset rich with social patterns.This project explores those patterns through an end-to-end data flow, answering one central question: ***"What kinds of people were more likely to survive?"***   
-# 💻 Note! 
-**Some steps might seem unnecessary, and that’s completely true. For example, moving data from CSV to MySQL and then to Python isn’t strictly required. I included these just to demonstrate fun ways to learn new tools and how we can build simple ETL processes throughout our project.**    
-  
-
+On April 15, 1912, the RMS Titanic sank in the North Atlantic after colliding with an iceberg. With only 20 lifeboats on board, over 1,500 lives were lost. This tragedy not only became a historical milestone but also left behind a dataset rich with social patterns.This project explores those patterns through an end-to-end data flow, answering one central question: ***"What kinds of people were more likely to survive?"***     
 ## 🧪 Project Scope & Project Phases   
   
 | Phase                          | Description                                              |
@@ -15,8 +11,8 @@ On April 15, 1912, the RMS Titanic sank in the North Atlantic after colliding wi
 | 1. Dataset Selection           | Download Titanic dataset from Kaggle                    |
 | 2. ETL (CSV → MySQL)           | Load structured data into a relational database (MySQL)  |
 | 3. Pre-Analysis in MySQL       | Run initial queries to check data quality and structure |
-| 4. ETL (MySQL -> CSV)          | Load analyzed data from MySQL to CSV file               |
-| 5. CDC                         | Capture and sync incremental changes between DBs         |
+| 4. CDC                         | Capture and sync incremental changes between DBs         |
+| 5. ETL (MySQL -> CSV)          | Load analyzed data from MySQL to CSV file               |
 | 6. Data Cleaning               | Handle missing values, types, feature engineering        |
 | 7. EDA                         | Explore patterns visually & statistically                |
 | 8. Machine Learning            | Train classifier to predict survival likelihood          |
@@ -33,7 +29,7 @@ Tools: Kaggle, Excel, Visual Studio Code
   <img width="266" height="51" alt="image" src="https://github.com/user-attachments/assets/65412cf8-0736-4ccb-9729-8c4eb0f7c73c" />
 - ☑️ Don't forget to save your csv file in Excel.   
   <img width="557" height="36" alt="image" src="https://github.com/user-attachments/assets/6ea3a765-bb23-433a-a120-bde0a0209328" />     
-- ‼️ Important step: Using Excel select whole "Name" column, click on "Ctrl + h". In Replace column type "," (comma) into **Find what** bar, and " " (space) into **Replace with**. Next click on **Replace All**. This step is super important before step 2.
+- ‼️ Important step: Using Excel select whole "Name" column, click on "Ctrl + h". In Replace column type "," (comma) in **Find what** bar, and " " (space) in **Replace with**. Next click on **Replace All**. This step is super important before step 2.
 ***RESULTS PATH*** : data/raw
 
 ### 2. ETL CSV -> MySQL ✅    
@@ -108,13 +104,16 @@ Before jumping into data cleaning or machine learning, I ran initial analysis di
 - ☑️ Creating basic group-based insights, like survival rate by gender and class
 
 During the initial data analysis, I identified several data quality issues and made following cleaning decisions:    
-- Removed the Cabin column due to nearly 80& missing values. This feature also showed no significant impact on the target variable (Survival).
+- Removed the Cabin column due to nearly 80% missing values. This feature also showed no significant impact on the target variable (Survival).
 - Dropped 2 rows with missing values in the Embarked column. Given the small number of missing entries and their potential importance for modeling, these rows were removed to simplify preprocessing.
 - The problem with column age, with 177 missing values will be solved in Python Analysis part. 
 
 ***RESULTS PATH(directory in my repo)***: SQL     
+### 4. CDC  
+In real-world scenarios, data in the source table often changes — new rows are added, others are updated or deleted. CDC (Change Data Capture) helps us track these changes by capturing them and saving to a separate table. This allows us to keep a history of changes, support incremental loads, and maintain a lightweight backup of modified data. This step is 100% additional. 
 
-### 4. ETL (MySQL -> CSV) ✅  
+
+### 5. ETL (MySQL -> CSV) ✅  
 Tools: SSIS, SSMS    
 Before moving forward with advanced analysis and machine learning, I extracted the cleaned dataset from MySQL and saved it as a CSV file.      
 - ☑️ Create new Integration Services Project in SSIS.    
@@ -131,8 +130,8 @@ In SSMS: <img width="300" height="300" alt="image" src="https://github.com/user-
 In chosen Folder: <img width="200" height="218" alt="image" src="https://github.com/user-attachments/assets/e6d32c7b-7ed3-4aef-88e7-57f1fc746bb2" />  
 In newly created csv file: <img width="350" height="383" alt="image" src="https://github.com/user-attachments/assets/2c803959-0135-4f5e-b39b-464851b93064" />
 
-***RESULTS PATH***: data/cleaned  
-
+***RESULTS PATH 1***: data/cleaned  
+***RESULTS PATH 2***: etl_all/CSVtoMYSQL
 
 to be continued
 -------
@@ -144,6 +143,7 @@ to be continued
 | └── `processed/`               | Cleaned and transformed data ready for loading                        |
 | `etl_all/`                     | ETL scripts and logic used to transform and load data                 |
 | └── `CSVtoMYSQL/`              | Project or script for loading CSV files into a MySQL database         |
+| └── `mysqlTOcsv/`              | Script or tool for exporting data from MySQL to CSV       
 | `SQL/`                         | Folder containing SQL scripts and database analysis                   |
 | └── `SQLanalysis.sql`          | SQL script with data exploration or transformation logic              |
 | `README.md`                    | Description of the project and instructions                           |
