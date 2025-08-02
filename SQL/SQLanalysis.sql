@@ -1,7 +1,7 @@
 USE titanic;
 
 -- Number of records
-SELECT COUNT(*) AS number_of_records FROM [dbo].[titanic_data];
+SELECT COUNT(*) AS number_of_records FROM [dbo].[titanic_data]; 
 
 -- Duplicates 
 SELECT PassengerId, COUNT(PassengerId) AS count_passenger_id 
@@ -23,7 +23,7 @@ SELECT
 	SUM(CASE WHEN Fare IS NULL THEN 1 ELSE 0 END) AS fare_null,
 	SUM(CASE WHEN Cabin IS NULL THEN 1 ELSE 0 END) AS cabin_null,
 	SUM(CASE WHEN Embarked IS NULL THEN 1 ELSE 0 END) AS embarked_null
-FROM [dbo].[titanic_data]; --we can see that age_null:2, cabin_numm: 687, embarked_null:2
+FROM [dbo].[titanic_data]; --we can see that age_null:177, cabin_null: 687, embarked_null:2
 
 -- data range within categorical data
 SELECT sex, COUNT(*) AS sex_range
@@ -117,3 +117,15 @@ SELECT
   SUM(CASE WHEN survived = 0 THEN 1 ELSE 0 END) AS died
 FROM [dbo].[titanic_data]
 GROUP BY pclass, sex ORDER BY pclass,sex; 
+
+SELECT * FROM titanic_data WHERE Cabin IS NULL;
+
+ALTER TABLE [dbo].[titanic_data]
+DROP COLUMN Cabin;
+
+DELETE FROM [dbo].[titanic_data]
+WHERE Embarked IS NULL;
+
+SELECT * FROM [dbo].[titanic_data]
+
+
