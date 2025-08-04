@@ -129,7 +129,7 @@ In newly created csv file: <img width="350" height="383" alt="image" src="https:
 ***RESULTS PATH 1***: data/cleaned/titanic_cleaned.csv <br>
 ***RESULTS PATH 2***: etl_all/mysqlTOcsv
 
-### 5. Data Cleaning 
+### 5. Data Cleaning ✅
 Tools: Visual Studio Code  
 Before building any predictive models, the dataset needed to be cleaned and enhanced. This step included:  
 - ☑️ Handling missing values in Age:  
@@ -140,6 +140,61 @@ IsAlone: binary feature indicating whether a passenger was traveling alone (1) o
 
 ***RESULTS PATH 1***: data/cleaned/titanic.py   
 ***RESULTS PATH 2***: data/cleaned/data_cleaned2.csv
+
+### 6. EDA ✅
+Tools: Visual Studio Code  
+At this stage, I performed an Exploratory Data Analysis (EDA) to better understand the dataset's structure, distributions, and relationships between variables. This step helped me identify potential patterns and insights that may influence passenger survival on the Titanic.
+
+I made the following observations:  
+- ☑️ Women were more likely to survive than men:<br>
+<img width="300" height="300" alt="image" src="https://github.com/user-attachments/assets/a478949b-ed13-4440-a536-0aa871791c07" /> <br>
+Out of 312 female passengers, 231 survived (~74%), whereas only 109 of 577 male passengers survived (~19%). This indicates that gender was a significant factor in survival outcomes.   <br>
+- ☑️ People that travelled in 1st class had a better chance than people in 3rd class:  <br>
+<img width="300" height="300" alt="image" src="https://github.com/user-attachments/assets/12d690b4-43b2-4d9f-8c56-10bfed491215" /> <br>
+In first class, 63% of passengers survived, in second 47% while in third only 24% did. This support the thesis that higher social class increased chances of survival. <br>
+<br>
+<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/acfcec1d-e6a9-4b64-9c70-2ef95a0e72ee" /> <br>
+- ☑️ Although most survivors were between 20 and 40 years old, this age group was also the most represented among all passengers: <br>
+<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/09b1a98c-caca-4108-8cae-5ae7f1bc7e30" /> <br>
+Stats: <br>
+
+| Age Group | People |
+|---|---|
+| 0-20 | 182 |
+| 20-40 | 530 |
+| 40-60 | 152 |
+| 60-80 | 24 |   <br>
+
+| Survived by Age | People|
+|-----------------|--------|
+|0-20 |      82|
+|20-40|    191|
+|40-60|     61|
+|60-80|    5|   <br>
+
+- ☑️ What seems to be interesting, we can speculate that people with <= 3 Family Members were more likely to survive. <br>
+<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/93324ed9-85bf-48e4-9d54-dc0bbce47830" /> <br>
+- ☑️ I extracted social titles from the Name column (e.g., Mr, Miss, Master, etc.) and grouped rare or professional titles under "Valued Profession". This feature proved to be one of the strongest predictors in the dataset and was included in the final model. <br>
+<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/9bd6cc89-072f-426e-b78a-1b5634de3eca" /> <br>
+Passengers with the title Mrs had the highest survival rate (~79%), followed by Miss (~70%) and Master (~58%).
+In contrast, Mr had the lowest survival rate (~15%). Passengers with professional or rare titles (e.g., "Dr", "Rev", "Col") grouped under Valued Profession had a survival rate around 30%, though with higher variability due to fewer observations. This suggests that social class, gender, and age (implied by title) played an important role in survival chances. <br>
+- ☑️ Final Cleaning <br>
+To prepare the dataset for modeling, I applied the following preprocessing steps : <br>
+1️⃣ Removed columns that were unlikely to contribute useful, predictive informations, such as: 'Name', 'Ticket', 'PassengerId' <br>
+2️⃣ I encoded categorical variables into numerical using One Hot Encoding on columns : 'Sex', 'Embarked' <br>
+- ☑️ As the final step in exploratory data analysis, I computed two types of correlation matrix to quantify relationships between numerical features and to identify which variables are most strongly associated with passenger survival: <br>
+1️⃣ Numerical correlation matrix <br>
+<img width="300" height="235" alt="image" src="https://github.com/user-attachments/assets/47bd0eb4-3463-48ee-9b01-95343b4bd676" /> <br>
+Sex, and Fare showed the highest positive correlation with survival. Pclass had a strong negative correlation, indicating that passengers in higher classes were more likely to survive. Other features such as FamilySize, Embarked_S, and Age had weaker or moderate correlations. <br>
+2️⃣ Heatmap <br>
+<img width="700" height="700" alt="image" src="https://github.com/user-attachments/assets/63bf7929-dced-4d3c-8098-a823189de401" /> <br>
+
+
+
+
+***RESULTS PATH***: data/cleaned/titanic.py  
+
+
 
 to be continued
 -------
