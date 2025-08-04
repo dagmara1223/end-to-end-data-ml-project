@@ -217,8 +217,10 @@ The confusion matrix showed how well the model predicted both classes. While not
 | Recall | 0.75 |
 | F1-score | 0.779 | <br>
 
-<img width="300" height="300" alt="image" src="https://github.com/user-attachments/assets/3ee19d36-2093-4832-b4c2-70fba2ef3159" />
+<img width="300" height="300" alt="image" src="https://github.com/user-attachments/assets/3ee19d36-2093-4832-b4c2-70fba2ef3159" /> <br>
 
+***RESULTS PATH 1***: data/cleaned/CSVforML.csv <br>
+***RESULTS PATH 2***: data/cleaned/titanic_mlModel.py
 
 to be continued
 -------
