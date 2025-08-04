@@ -188,12 +188,36 @@ To prepare the dataset for modeling, I applied the following preprocessing steps
 Sex, and Fare showed the highest positive correlation with survival. Pclass had a strong negative correlation, indicating that passengers in higher classes were more likely to survive. Other features such as FamilySize, Embarked_S, and Age had weaker or moderate correlations. <br>
 2️⃣ Heatmap <br>
 <img width="700" height="700" alt="image" src="https://github.com/user-attachments/assets/63bf7929-dced-4d3c-8098-a823189de401" /> <br>
+***RESULTS PATH***: data/cleaned/titanic.py     
+  
+### 7. Machine Learning 
+In this step, we are building a machine learning model using supervised learning, as our target: 'Survived' is known for each passenger.   
+- ☑️ Save most recent CSV file.                          
+- ☑️ Check variable types of your data set once again - before training the models, I noticed that the Title column remained as an object (categorical text data). Since scikit-learn models require numerical input, I converted this feature using one-hot encoding. I also dropped AgeGroup column.             
+- ☑️ Prepare train and test set. <br>
+  **LINEAR MODELS:** <br>                    
+- ☑️ As a baseline, I first applied Linear Regression to observe how the data behaves and to establish a simple reference point for future classification models.     
+  **Resultats for Linear Regression** <br>
+  
+| Metrics| Value |
+| :--- | :--- |
+| Accuracy | 0.837 |
+| Precision | 0.820 |
+| Recall | 0.735 |
+| F1-score | 0.775 | <br>
 
+<img width="300" height="300" alt="image" src="https://github.com/user-attachments/assets/a38dc15a-1b31-43a1-a2e7-5784f79641dd" />  <br>
+The confusion matrix showed how well the model predicted both classes. While not ideal for final deployment, this approach offered useful insights and highlighted the importance of using proper classifiers for binary tasks. <br>
+- ☑️ The second approach is Logistic Regression. Unlike Linear Regression, it is specifically designed for binary classification tasks, making it a natural fit for predicting Titanic passenger survival (Survived = 0 or 1). However, the results are still not satisfying. <br>
 
+| Metrics| Value |
+| :--- | :--- |
+| Accuracy | 0.838 |
+| Precision | 0.810 |
+| Recall | 0.75 |
+| F1-score | 0.779 | <br>
 
-
-***RESULTS PATH***: data/cleaned/titanic.py  
-
+<img width="300" height="300" alt="image" src="https://github.com/user-attachments/assets/3ee19d36-2093-4832-b4c2-70fba2ef3159" />
 
 
 to be continued
