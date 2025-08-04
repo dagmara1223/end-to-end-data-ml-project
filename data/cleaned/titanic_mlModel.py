@@ -42,6 +42,7 @@ plt.ylabel('Actual')
 plt.title('Confusion Matrix – Linear Regression')
 plt.show()
 
+# Logistic Regression
 from sklearn.linear_model import LogisticRegression
 
 clf = LogisticRegression(max_iter=10000, random_state=0)
@@ -59,4 +60,5 @@ plt.xlabel('Predicted')
 plt.ylabel('Actual')
 plt.title('Confusion Matrix - Logistic Regression')
 plt.show()
+
 
