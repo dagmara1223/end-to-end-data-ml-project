@@ -29,18 +29,18 @@ y_pred_class = np.where(y_lin_pred >= 0.5, 1, 0)
 
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix, classification_report
 
-# print("LinearRegress Accuracy:", accuracy_score(y_test, y_pred_class))
-# print("LinearRegress Precision:", precision_score(y_test, y_pred_class))
-# print("LinearRegress Recall:", recall_score(y_test, y_pred_class))
-# print("LinearRegress F1-score:", f1_score(y_test, y_pred_class))
-# print("\nConfusion Matrix:\n", confusion_matrix(y_test, y_pred_class))
+print("LinearRegress Accuracy:", accuracy_score(y_test, y_pred_class))
+print("LinearRegress Precision:", precision_score(y_test, y_pred_class))
+print("LinearRegress Recall:", recall_score(y_test, y_pred_class))
+print("LinearRegress F1-score:", f1_score(y_test, y_pred_class))
+print("\nConfusion Matrix:\n", confusion_matrix(y_test, y_pred_class))
 
-# cm = confusion_matrix(y_test, y_pred_class)
-# sns.heatmap(cm, annot=True, fmt='d', cmap='Blues')
-# plt.xlabel('Predicted')
-# plt.ylabel('Actual')
-# plt.title('Confusion Matrix – Linear Regression')
-# plt.show()
+cm = confusion_matrix(y_test, y_pred_class)
+sns.heatmap(cm, annot=True, fmt='d', cmap='Blues')
+plt.xlabel('Predicted')
+plt.ylabel('Actual')
+plt.title('Confusion Matrix – Linear Regression')
+plt.show()
 
 from sklearn.linear_model import LogisticRegression
 
@@ -59,3 +59,4 @@ plt.xlabel('Predicted')
 plt.ylabel('Actual')
 plt.title('Confusion Matrix - Logistic Regression')
 plt.show()
+
