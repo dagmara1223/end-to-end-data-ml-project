@@ -225,6 +225,7 @@ A Decision Tree Classifier was applied to explore non-linear relationships in th
 |Best params |{'max_depth': 5, 'min_samples_split': 20}|
 |Best score| 0.8156899438589578|
 |Test set accuracy |0.8202| <br>
+
 <img width="300" height="300" alt="image" src="https://github.com/user-attachments/assets/ab5e512d-b16b-4a9a-8326-abd2db898785" /> <br>
 - ☑️ Random Forest 
 
