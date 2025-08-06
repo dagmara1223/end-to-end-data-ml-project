@@ -194,8 +194,7 @@ Sex, and Fare showed the highest positive correlation with survival. Pclass had 
 In this step, we are building a machine learning model using supervised learning, as our target: 'Survived' is known for each passenger.   
 - ☑️ Save most recent CSV file.                          
 - ☑️ Check variable types of your data set once again - before training the models, I noticed that the Title column remained as an object (categorical text data). Since scikit-learn models require numerical input, I converted this feature using one-hot encoding. I also dropped AgeGroup column.             
-- ☑️ Prepare train and test set. <br>
-  **LINEAR MODELS:** <br>                    
+- ☑️ Prepare train and test set. <br>                 
 - ☑️ As a baseline, I first applied Linear Regression to observe how the data behaves and to establish a simple reference point for future classification models.     
   **Resultats for Linear Regression** <br>
   
@@ -208,7 +207,7 @@ In this step, we are building a machine learning model using supervised learning
 
 <img width="300" height="300" alt="image" src="https://github.com/user-attachments/assets/a38dc15a-1b31-43a1-a2e7-5784f79641dd" />  <br>
 The confusion matrix showed how well the model predicted both classes. While not ideal for final deployment, this approach offered useful insights and highlighted the importance of using proper classifiers for binary tasks. <br>
-- ☑️ The second approach is Logistic Regression. Unlike Linear Regression, it is specifically designed for binary classification tasks, making it a natural fit for predicting Titanic passenger survival (Survived = 0 or 1). However, the results are still not satisfying. <br>
+- ☑️ The second approach is Logistic Regression. Unlike Linear Regression, it is specifically designed for binary classification tasks, making it a natural fit for predicting Titanic passenger survival (Survived = 0 or 1)<br>
 
 | Metrics| Value |
 | :--- | :--- |
@@ -218,6 +217,16 @@ The confusion matrix showed how well the model predicted both classes. While not
 | F1-score | 0.779 | <br>
 
 <img width="300" height="300" alt="image" src="https://github.com/user-attachments/assets/3ee19d36-2093-4832-b4c2-70fba2ef3159" /> <br>
+- ☑️ Next model: Decision Tree <br>
+A Decision Tree Classifier was applied to explore non-linear relationships in the Titanic dataset. This model recursively splits the data into branches based on feature values, aiming to maximize information gain (or reduce impurity) at each split. Decision Trees are highly interpretable and can capture complex decision rules, making them a useful tool for understanding how specific features (such as Sex, Age, or Pclass) influence the survival outcome. In order to optimize the Decision Tree and reduce the risk of overfitting, I tested multiple values for the min_samples_split hyperparameter by using GridSearch. <br>
+
+|Metrics|Value|
+|:------|:------|
+|Best params |{'max_depth': 5, 'min_samples_split': 20}|
+|Best score| 0.8156899438589578|
+|Test set accuracy |0.8202| <br>
+<img width="300" height="300" alt="image" src="https://github.com/user-attachments/assets/ab5e512d-b16b-4a9a-8326-abd2db898785" /> <br>
+- ☑️ Random Forest 
 
 ***RESULTS PATH 1***: data/cleaned/CSVforML.csv <br>
 ***RESULTS PATH 2***: data/cleaned/titanic_mlModel.py
