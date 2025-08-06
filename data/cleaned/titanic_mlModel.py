@@ -61,4 +61,53 @@ plt.ylabel('Actual')
 plt.title('Confusion Matrix - Logistic Regression')
 plt.show()
 
+# Decision Tree
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import accuracy_score
+from sklearn.model_selection import GridSearchCV
+
+params = {
+    'min_samples_split':[2,5,10,20,50],
+    'max_depth':[None, 3,5,10]
+}
+tree = DecisionTreeClassifier(random_state=42)
+grid_search = GridSearchCV(tree, params, cv=5, scoring='accuracy')
+grid_search.fit(X_train, y_train)
+print(f'Best params: {grid_search.best_params_}')
+print(f'Best score: {grid_search.best_score_}')
+
+best_tree = grid_search.best_estimator_
+test_score = best_tree.score(X_test, y_test)
+print(f'Test set accuracy: {test_score:.4f}')
+
+cm_3 = confusion_matrix(y_test, best_tree.predict(X_test))
+sns.heatmap(cm_3, annot=True, fmt='d', cmap='Blues')
+plt.xlabel('Predicted')
+plt.ylabel('Actual')
+plt.title('Confusion Matrix - Decision Tree')
+plt.show()
+
+# Random Forest
+from sklearn.ensemble import RandomForestClassifier
+
+params = {
+    'n_estimators': [50, 100, 200],         
+    'max_depth': [None, 5, 10, 20],        
+    'min_samples_split': [2, 5, 10],       
+    'min_samples_leaf': [1, 2, 4],         
+    'max_features': ['auto', 'sqrt', 'log2'] 
+}
+from sklearn.ensemble import RandomForestClassifier
+rf = RandomForestClassifier(random_state=42)
+
+grid_search = GridSearchCV(estimator=rf, param_grid=params, 
+                           cv=5, scoring='accuracy', n_jobs=-1)
+
+grid_search.fit(X_train, y_train)
+
+best_rf = grid_search.best_estimator_
+print("Best Parameters:", grid_search.best_params_)
+print("Best CV Score:", grid_search.best_score_)
+print("Test Accuracy:", best_rf.score(X_test, y_test))
+
 
