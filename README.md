@@ -227,12 +227,49 @@ A Decision Tree Classifier was applied to explore non-linear relationships in th
 |Test set accuracy |0.8202| <br>
 
 <img width="300" height="300" alt="image" src="https://github.com/user-attachments/assets/ab5e512d-b16b-4a9a-8326-abd2db898785" /> <br>
-- ☑️ Random Forest 
+- ☑️ Random Forest  
+Random Forest combines multiple decision trees, and the final prediction is made through majority voting. This approach reduces overfitting compared to a single tree and provides more stable results.
+In our case, Random Forest achieved the highest accuracy so far, making it the best-performing model among those tested. <br>
+
+|Metrics|Value|
+|:------|:------|
+|Best params |{'max_depth': None, 'max_features': 'sqrt', 'min_samples_leaf': 2, 'min_samples_split': 10, 'n_estimators': 50}|
+|Best CV score| 0.83965 |
+|Test set accuracy |0.831| <br> 
+
+<img width="300" height="300" alt="image" src="https://github.com/user-attachments/assets/2e566c0c-03f6-441e-9b95-15e75481e3ff" />
+<br>
+- ☑️ Gradient Boosting <br>
+Now, we are trying a supervised model algorithm that creates predictive model by sequentially combining many "weak" base models but can be more sensitive to hyperparameters. As we can see below, Cradient Boosring algorithm gave us slightly better results than Random Forest. <br>
+
+|Metrics|Value|
+|:------|:------|
+|Best params |{'learning_rate': 0.1, 'max_depth': 3, 'n_estimators': 100, 'subsample': 0.8}|
+|Best CV score| 0.84106|
+|Test set accuracy |0.84270| <br>
+
+<img width="300" height="300" alt="image" src="https://github.com/user-attachments/assets/0e505510-92c0-4ffd-93c6-204dbe1a0fc6" />
+<br>
+- ☑️ KNN : K-Nearest Neighbors <br>
+KNN is a simple algorithm that classifies a sample based on the majority class of its closest neighbors.
+Since the algorithm relies on distance calculations, we applied feature scaling to ensure that all variables contribute equally to the model. Without scaling, features with larger numeric ranges would dominate the distance metric and bias the results. Our results seems to be really good using KNN. <br>
+
+|Metrics|Value|
+|:------|:------|
+|Best params |{'knn__metric': 'euclidean', 'knn__n_neighbors': 11, 'knn__weights': 'uniform'}|
+|Best CV score| 0.8171|
+|Test set accuracy |0.84270| <br>
+
+<img width="300" height="300" alt="image" src="https://github.com/user-attachments/assets/6840776e-5fac-4fbf-bdcd-b4584dbb60c9" />
+<br>
+
+### 🎉 FINAL RESULTS <br>
+After running multiple models, we are happy to announce (along with an overheated computer 🖥️🔥) that the best performance was achieved by Random Forest & Gradient Boosting, reaching an accuracy of ~0.84 on the test set.
+This is a solid result, especially considering that we did not use any neural networks – only classical machine learning models. <br>
 
 ***RESULTS PATH 1***: data/cleaned/CSVforML.csv <br>
 ***RESULTS PATH 2***: data/cleaned/titanic_mlModel.py
 
-to be continued
 -------
 ## ⛏️ Structure    
 | Folder / File                  | Description                                                           |
