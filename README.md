@@ -266,6 +266,30 @@ Since the algorithm relies on distance calculations, we applied feature scaling 
 ### 🎉 FINAL RESULTS <br>
 After running multiple models, we are happy to announce (along with an overheated computer 🖥️🔥) that the best performance was achieved by Random Forest & Gradient Boosting, reaching an accuracy of ~0.84 on the test set.
 This is a solid result, especially considering that we did not use any neural networks – only classical machine learning models. <br>
+<br>
+Back to our question : ***"What kinds of people were more likely to survive?"***     <br>
+Beyond accuracy, we analyzed which features contributed the most to survival predictions. Both Random Forest and Gradient Boosting indicated that the most important features were Sex, Passenger Class, and Fare, which aligns with historical accounts of the Titanic disaster. Interestingly, the results also highlighted the importance of passenger titles: for example, people with the title "Mr" had lower survival chances, while women and passengers from higher classes had the highest likelihood of survival.  <br>
+
+Chart made by using Gradient Boosting: <br>
+
+|Feature|Importance|
+|:------|:------|
+| Title_Mr |  0.208103|
+|Sex  |  0.186511 |
+|Fare  | 0.174191|
+|Pclass |  0.095815|
+| Age  |  0.079248 |
+|FamilySize  |  0.063020|
+|Title_Valued Profession  |  0.015884|
+| Title_Master |   0.010485|
+| Embarked_S  |  0.007766|
+| SibSp | 0.006778 |
+| Title_Mrs  |  0.006637|
+| Embarked_C |   0.004395|
+|Title_Miss   | 0.003531|
+| Embarked_Q  |  0.002762|
+|Parch  |  0.002312|
+|IsAlone  |  0.001705 |<br>
 
 ***RESULTS PATH 1***: data/cleaned/CSVforML.csv <br>
 ***RESULTS PATH 2***: data/cleaned/titanic_mlModel.py
