@@ -158,3 +158,14 @@ report_metrics(best_knn, X_test, y_test, "KNN")
 
 cm6 = confusion_matrix(y_test, best_knn.predict(X_test))
 #chart(cm6, 'KNN')
+
+# FINAL RESULTS - Feature Importance
+
+importances_rf = best_rf.feature_importances_
+importances_gb = best_gb.feature_importances_
+feature_names = X_train.columns
+feat_imp = pd.DataFrame({'Feature': feature_names, 'Importance': importances_gb})
+feat_imp = feat_imp.sort_values(by='Importance', ascending=False)
+
+print(feat_imp)
+
